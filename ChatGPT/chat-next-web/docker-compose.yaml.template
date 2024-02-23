@@ -7,3 +7,6 @@ services:
     # volumes:
       # - "./db:/etc/x-ui"
       # - "./cert:/root/cert"
+    environment:
+      - "GOOGLE_API_KEY"="value"
+      - "CODE"="Ethernet"
