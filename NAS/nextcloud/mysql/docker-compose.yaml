@@ -1,0 +1,32 @@
+version: '3.2'
+services:
+    mysql-server-nextcloud:
+      container_name: mysql
+      ports:
+        - "9506:3306" 
+      environment:
+        MYSQL_ROOT_PASSWORD: EternallyAscend
+        MYSQL_DATABASE: NextCloud
+        MYSQL_USER: UserNextCloud
+        MYSQL_PASSWORD: UserNextCloud
+      image: mysql/mysql-server
+
+    nextcloud:
+      image: nextcloud
+      ports:
+        - "9500:80"
+      volumes:
+        - ./data:/var/www/html
+      depends_on:
+        - mysql-server-nextcloud
+    # wordpress:
+    #   image: wordpress:latest
+    #   container_name: wordpress
+    #   ports:
+    #     - "20080:80"
+    #   environment:
+    #     WORDPRESS_DB_HOST: mysql-server:3306
+    #     WORDPRESS_DB_USER: wordpress_user
+    #     WORDPRESS_DB_PASSWORD: secret
+    #   depends_on:
+    #     - mysql-server
