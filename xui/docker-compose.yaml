@@ -6,8 +6,8 @@ services:
       - "9100-9199:9100-9199"
     volumes:
       - "./hosts:/etc/hosts"
-      - "./x-ui/db:/etc/x-ui"
-      - "./x-ui/cert:/root/cert"
+      - "./db:/etc/x-ui"
+      - "./cert:/root/cert"
     # networks:
       # xuipv6:
         # enable_ipv6: true
